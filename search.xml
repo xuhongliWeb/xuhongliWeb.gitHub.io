@@ -3,7 +3,10 @@
   <entry>
     <title><![CDATA[first]]></title>
     <url>%2F2019%2F09%2F18%2Ffirst%2F</url>
-    <content type="text"><![CDATA[第一篇文章 Hello hexo发布流程新建1hexo new &quot;hexo new &apos;hello-world&apos;&quot; 执行命令1hexo g 发布到github12hexo cleanhexo g -d]]></content>
+    <content type="text"><![CDATA[第一篇文章 Hello hexo发布流程新建1hexo new &quot;hexo new &apos;hello-world&apos;&quot; 创建tags1hexo new page tags 参考链接 https://www.jianshu.com/p/e17711e44e00Hexo使用攻略-添加分类及标签 执行命令1hexo g 发布到github12hexo cleanhexo g -d]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
       </tags>

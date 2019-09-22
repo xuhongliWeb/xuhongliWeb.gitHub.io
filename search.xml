@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[前言]]></title>
+    <url>%2F2019%2F09%2F22%2F%E5%89%8D%E8%A8%80%2F</url>
+    <content type="text"><![CDATA[关于前端-算法先说下自己不是科班出身 ，在工作的过程中深深的体会到算法的重要性，如果写的很差会导致程序运行很慢。。， 如何学习算法多看、多练、多思考。 多看 推荐《算法图解》《啊哈！算法》 新手 多练 leetCoce 、 牛客 https://leetcode-cn.com 多思考 养成总结的习惯，懂得变通。养成良好的思维方式 关于更新因为没太多时间更新在加上自己也处于学习阶段， 更新会比较慢。 希望自己能写出健壮、快速、精简的代码。共勉]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>leetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[singleNumber]]></title>
+    <url>%2F2019%2F09%2F22%2FsingleNumber%2F</url>
+    <content type="text"><![CDATA[只出现一次的数字给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。 ###]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>leetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[first]]></title>
     <url>%2F2019%2F09%2F18%2Ffirst%2F</url>
-    <content type="text"><![CDATA[第一篇文章 Hello hexo发布流程新建1hexo new &quot;hexo new &apos;hello-world&apos;&quot; 创建tags1hexo new page tags 参考链接 https://www.jianshu.com/p/e17711e44e00Hexo使用攻略-添加分类及标签 执行命令1hexo g 发布到github12hexo cleanhexo g -d]]></content>
+    <content type="text"><![CDATA[第一篇文章 Hello hexo发布流程新建1hexo new &quot;hello-world&quot; 创建tags1hexo new page tags 参考链接 https://www.jianshu.com/p/e17711e44e00Hexo使用攻略-添加分类及标签 执行命令1hexo g 发布到github12hexo cleanhexo g -d]]></content>
       <categories>
         <category>web前端</category>
       </categories>

@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[singleNumber]]></title>
     <url>%2F2019%2F09%2F22%2FsingleNumber%2F</url>
-    <content type="text"><![CDATA[只出现一次的数字给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。 ###]]></content>
+    <content type="text"><![CDATA[只出现一次的数字给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。说明： 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？ 示例 1: 输入: [2,2,1]输出: 1示例 2: 输入: [4,1,2,1,2]输出: 4 来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/single-number著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 解法1 应该是最慢的方法。。。刚看到这个题的时候我以为是去重然后就出结果了，尴尬。然后仔细看了下， 我解法是数组加对象， 利用数组判断出每个数字的循环次数，然后再用对象找出最小的那个。。。 123456789101112131415161718192021222324252627282930313233343536/** * @param &#123;number[]&#125; nums * @return &#123;number&#125; */var singleNumber = function(nums) &#123; if (nums.length &lt; 2) &#123; return nums[0]; &#125; let map = &#123;&#125;; let n = 1; let res = &apos;&apos;; for (let i = 0; i &lt; nums.length; i++) &#123; n = 1; for (let j = 0; j &lt; nums.length; j++) &#123; if (nums[i] === nums[j]) &#123; map[nums[i]] = n++; &#125; &#125; &#125; console.log(map, &apos;map&apos;); let min = 1; for (let key in map) &#123; if (map[key] &lt; min) &#123; min = map[key]; &#125; console.log(min, &apos;min&apos;); if (map[key] === min) &#123; res = key; &#125; &#125; console.log(res); return res;&#125;;let t = [ 2, 1, 2 ];let t1 = [ 4, 1, 2, 1, 2 ];singleNumber(t); 然后运行时长看图：]]></content>
       <categories>
         <category>web前端</category>
       </categories>

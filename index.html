@@ -497,10 +497,22 @@
 <p>输入: [2,2,1]<br>输出: 1<br>示例 2:</p>
 <p>输入: [4,1,2,1,2]<br>输出: 4</p>
 <p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/single-number" target="_blank" rel="noopener">https://leetcode-cn.com/problems/single-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<h3 id="解法1-应该是最慢的方法。。。"><a href="#解法1-应该是最慢的方法。。。" class="headerlink" title="解法1 应该是最慢的方法。。。"></a>解法1 应该是最慢的方法。。。</h3><p>刚看到这个题的时候我以为是去重然后就出结果了，尴尬。然后仔细看了下， 我解法是数组加对象， 利用数组判断出每个数字的循环次数，然后再用对象找出最小的那个。。。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">	if (nums.length &lt; 2) &#123;</span><br><span class="line">		return nums[0];</span><br><span class="line">	&#125;</span><br><span class="line">	let map = &#123;&#125;;</span><br><span class="line">	let n = 1;</span><br><span class="line">	let res = &apos;&apos;;</span><br><span class="line">	for (let i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">		n = 1;</span><br><span class="line">		for (let j = 0; j &lt; nums.length; j++) &#123;</span><br><span class="line">			if (nums[i] === nums[j]) &#123;</span><br><span class="line">				map[nums[i]] = n++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(map, &apos;map&apos;);</span><br><span class="line">	let min = 1;</span><br><span class="line">	for (let key in map) &#123;</span><br><span class="line">		if (map[key] &lt; min) &#123;</span><br><span class="line">			min = map[key];</span><br><span class="line">		&#125;</span><br><span class="line">		console.log(min, &apos;min&apos;);</span><br><span class="line">		if (map[key] === min) &#123;</span><br><span class="line">			res = key;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(res);</span><br><span class="line">	return res;</span><br><span class="line">&#125;;</span><br><span class="line">let t = [ 2, 1, 2 ];</span><br><span class="line">let t1 = [ 4, 1, 2, 1, 2 ];</span><br><span class="line">singleNumber(t);</span><br></pre></td></tr></table></figure>
+<h3 id="解法1-应该是最慢的方法。。。违背了题意"><a href="#解法1-应该是最慢的方法。。。违背了题意" class="headerlink" title="解法1 应该是最慢的方法。。。违背了题意"></a>解法1 应该是最慢的方法。。。违背了题意</h3><p>刚看到这个题的时候我以为是用对象就出结果了，尴尬。然后仔细想了下这不是消消乐那种嘛，虽然不怎么玩，但是想起来简单做起来难， 我第一次的解法确实最繁琐的。<br>解法是利用了很多外部空间是数组加对象</p>
+<ul>
+<li>利用数组判断出每个数字的循环次数</li>
+<li>再用对象找出最小的那个。。。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">	if (nums.length &lt; 2) &#123;</span><br><span class="line">		return nums[0];</span><br><span class="line">	&#125;</span><br><span class="line">	let map = &#123;&#125;;</span><br><span class="line">	let n = 1;</span><br><span class="line">	let res = &apos;&apos;;</span><br><span class="line">	for (let i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">		n = 1;</span><br><span class="line">		for (let j = 0; j &lt; nums.length; j++) &#123;</span><br><span class="line">			if (nums[i] === nums[j]) &#123;</span><br><span class="line">				map[nums[i]] = n++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(map, &apos;map&apos;);</span><br><span class="line">	let min = 1;</span><br><span class="line">	for (let key in map) &#123;</span><br><span class="line">		if (map[key] &lt; min) &#123;</span><br><span class="line">			min = map[key];</span><br><span class="line">		&#125;</span><br><span class="line">		console.log(min, &apos;min&apos;);</span><br><span class="line">		if (map[key] === min) &#123;</span><br><span class="line">			res = key;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(res);</span><br><span class="line">	return res;</span><br><span class="line">&#125;;</span><br><span class="line">let t = [ 2, 1, 2 ];</span><br><span class="line">let t1 = [ 4, 1, 2, 1, 2 ];</span><br><span class="line">singleNumber(t);</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 <p>然后运行时长看图：<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g78gkzf509j30as0a8aa7.jpg" alt="1.png"></p>
+<h2 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h2><ul>
+<li>新建对象</li>
+<li>相同的就删除</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var singleNumber1 = function(nums) &#123;</span><br><span class="line">	var obj = &#123;&#125;;</span><br><span class="line">	for (let i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">		obj[nums[i]] = !obj[nums[i]];</span><br><span class="line">		if (!obj[nums[i]]) &#123;</span><br><span class="line">			delete obj[nums[i]];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	console.log(obj);</span><br><span class="line">	return Object.keys(obj)[0];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let t = [ 2, 1, 2 ];</span><br><span class="line">let t1 = [ 4, 1, 2, 1, 2 ];</span><br><span class="line">let t2 = [ 1, 3, 1, -1, 3 ];</span><br><span class="line">singleNumber1(t1);</span><br></pre></td></tr></table></figure>
+
+<p>运行图解-第一次用这个软件<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g79oh84oi6j30n2158q6d.jpg" alt="l1.png"></p>
+<p>运行时长<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g79ojg56dwj309r06e3yj.jpg" alt="222.png"></p>
 
           
         
@@ -549,7 +561,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xuhongliweb.github.io/2019/09/18/first/">
+    <link itemprop="mainEntityOfPage" href="https://xuhongliweb.github.io/2019/09/18/HelloHexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xu">
@@ -568,7 +580,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/18/first/" itemprop="url">first</a></h1>
+                <a class="post-title-link" href="/2019/09/18/HelloHexo/" itemprop="url">first</a></h1>
         
 
         <div class="post-meta">
@@ -621,8 +633,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/18/first/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/18/first/" itemprop="commentCount"></span>
+                <a href="/2019/09/18/HelloHexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/18/HelloHexo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -763,7 +775,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>

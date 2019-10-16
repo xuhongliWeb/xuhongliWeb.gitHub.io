@@ -1,82 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>前言</title>
-      <link href="/2019/09/22/%E5%89%8D%E8%A8%80/"/>
-      <url>/2019/09/22/%E5%89%8D%E8%A8%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="关于前端-算法"><a href="#关于前端-算法" class="headerlink" title="关于前端-算法"></a>关于前端-算法</h2><p>先说下自己不是科班出身 ，在工作的过程中深深的体会到算法的重要性，如果写的很差会导致程序运行很慢。。，</p><h2 id="如何学习算法"><a href="#如何学习算法" class="headerlink" title="如何学习算法"></a>如何学习算法</h2><p>多看、多练、多思考。 </p><ul><li>多看 推荐《算法图解》《啊哈！算法》 新手</li><li>多练 leetCoce 、 牛客 <a href="https://leetcode-cn.com" target="_blank" rel="noopener">https://leetcode-cn.com</a></li><li>多思考 养成总结的习惯，懂得变通。养成良好的思维方式</li></ul><h2 id="关于更新"><a href="#关于更新" class="headerlink" title="关于更新"></a>关于更新</h2><p>因为没太多时间更新在加上自己也处于学习阶段， 更新会比较慢。 希望自己能写出健壮、快速、精简的代码。共勉</p>]]></content>
-      
-      
+<search>
+  <entry>
+    <title><![CDATA[前言]]></title>
+    <url>%2F2019%2F09%2F22%2F%E5%89%8D%E8%A8%80%2F</url>
+    <content type="text"><![CDATA[关于前端-算法先说下自己不是科班出身 ，在工作的过程中深深的体会到算法的重要性，如果写的很差会导致程序运行很慢。。， 如何学习算法多看、多练、多思考。 多看 推荐《算法图解》《啊哈！算法》 新手 多练 leetCoce 、 牛客 https://leetcode-cn.com 多思考 养成总结的习惯，懂得变通。养成良好的思维方式 关于更新因为没太多时间更新在加上自己也处于学习阶段， 更新会比较慢。 希望自己能写出健壮、快速、精简的代码。共勉]]></content>
       <categories>
-          
-          <category> web前端 </category>
-          
+        <category>web前端</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> leetCode </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>singleNumber</title>
-      <link href="/2019/09/22/singleNumber/"/>
-      <url>/2019/09/22/singleNumber/</url>
-      
-        <content type="html"><![CDATA[<h2 id="只出现一次的数字"><a href="#只出现一次的数字" class="headerlink" title="只出现一次的数字"></a>只出现一次的数字</h2><p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。<br>说明：</p><p>你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？</p><p>示例 1:</p><p>输入: [2,2,1]<br>输出: 1<br>示例 2:</p><p>输入: [4,1,2,1,2]<br>输出: 4</p><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/single-number" target="_blank" rel="noopener">https://leetcode-cn.com/problems/single-number</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p><h3 id="解法1-应该是最慢的方法。。。违背了题意"><a href="#解法1-应该是最慢的方法。。。违背了题意" class="headerlink" title="解法1 应该是最慢的方法。。。违背了题意"></a>解法1 应该是最慢的方法。。。违背了题意</h3><p>刚看到这个题的时候我以为是用对象就出结果了，尴尬。然后仔细想了下这不是消消乐那种嘛，虽然不怎么玩，但是想起来简单做起来难， 我第一次的解法确实最繁琐的。<br>解法是利用了很多外部空间是数组加对象</p><ul><li>利用数组判断出每个数字的循环次数</li><li>再用对象找出最小的那个。。。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;number[]&#125; nums</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">if (nums.length &lt; 2) &#123;</span><br><span class="line">return nums[0];</span><br><span class="line">&#125;</span><br><span class="line">let map = &#123;&#125;;</span><br><span class="line">let n = 1;</span><br><span class="line">let res = &apos;&apos;;</span><br><span class="line">for (let i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">n = 1;</span><br><span class="line">for (let j = 0; j &lt; nums.length; j++) &#123;</span><br><span class="line">if (nums[i] === nums[j]) &#123;</span><br><span class="line">map[nums[i]] = n++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(map, &apos;map&apos;);</span><br><span class="line">let min = 1;</span><br><span class="line">for (let key in map) &#123;</span><br><span class="line">if (map[key] &lt; min) &#123;</span><br><span class="line">min = map[key];</span><br><span class="line">&#125;</span><br><span class="line">console.log(min, &apos;min&apos;);</span><br><span class="line">if (map[key] === min) &#123;</span><br><span class="line">res = key;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(res);</span><br><span class="line">return res;</span><br><span class="line">&#125;;</span><br><span class="line">let t = [ 2, 1, 2 ];</span><br><span class="line">let t1 = [ 4, 1, 2, 1, 2 ];</span><br><span class="line">singleNumber(t);</span><br></pre></td></tr></table></figure></li></ul><p>然后运行时长看图：<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g78gkzf509j30as0a8aa7.jpg" alt="1.png"></p><h3 id="解法2"><a href="#解法2" class="headerlink" title="解法2"></a>解法2</h3><ul><li>新建对象</li><li>相同的就删除</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var singleNumber1 = function(nums) &#123;</span><br><span class="line">var obj = &#123;&#125;;</span><br><span class="line">for (let i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">obj[nums[i]] = !obj[nums[i]];</span><br><span class="line">if (!obj[nums[i]]) &#123;</span><br><span class="line">delete obj[nums[i]];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(obj);</span><br><span class="line">return Object.keys(obj)[0];</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let t = [ 2, 1, 2 ];</span><br><span class="line">let t1 = [ 4, 1, 2, 1, 2 ];</span><br><span class="line">let t2 = [ 1, 3, 1, -1, 3 ];</span><br><span class="line">singleNumber1(t1);</span><br></pre></td></tr></table></figure><p>运行图解-第一次用这个软件<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g79oh84oi6j30n2158q6d.jpg" alt="l1.png"></p><p>运行时长<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g79ojg56dwj309r06e3yj.jpg" alt="222.png"></p><h2 id="一些大神的解法-："><a href="#一些大神的解法-：" class="headerlink" title="一些大神的解法 ："></a>一些大神的解法 ：</h2><h3 id="解法3"><a href="#解法3" class="headerlink" title="解法3"></a>解法3</h3><ul><li>因为 除了某个元素只出现一次以外，其余每个元素均出现两次， 所以我们可以先排序，在以2为基数循环  </li><li>第一步先排序  冒号排序972ms…, 自带的排序88ms</li><li>以2为基数每次循环</li><li>因为是排好序的又是相同的是两两出现当前的不等于后一个就是唯一的，如果没有找到不相等的就返回最后一个</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">var singleNumber2 = function(nums) &#123;</span><br><span class="line">if (nums.length &lt; 2) &#123;</span><br><span class="line">return nums[0];</span><br><span class="line">&#125;</span><br><span class="line">let tmp = 0;</span><br><span class="line">// 排序</span><br><span class="line">for (let i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">for (let j = 0; j &lt; nums.length - i - 1; j++) &#123;</span><br><span class="line">if (nums[j] &gt; nums[j + 1]) &#123;</span><br><span class="line">tmp = nums[j];</span><br><span class="line">nums[j] = nums[j + 1];</span><br><span class="line">nums[j + 1] = tmp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">for (let i = 0; i &lt; nums.length; i += 2) &#123;</span><br><span class="line">if (nums[i] != nums[i + 1]) &#123;</span><br><span class="line">return nums[i];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return nums[nums.length - 1];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>运行时长：<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g7bvvn7ft2j30bm09r3yo.jpg" alt="微信截图_20190925171519.png"></p><h3 id="解法三-异或运算"><a href="#解法三-异或运算" class="headerlink" title="解法三 异或运算"></a>解法三 异或运算</h3><p>先来看下异或运算的描述</p><ul><li>任何数与0异或都不会改变他的数值 x ^ 0 = x</li><li>任何数与自身异都为0 x^x = 0</li></ul><p>正好利用以上两点完美的解决。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var singleNumber = function(nums) &#123;</span><br><span class="line">let num = 0;</span><br><span class="line">for (let i = 0; i &lt; nums.length; i++) &#123;</span><br><span class="line">num = num ^ nums[i];</span><br><span class="line">&#125;</span><br><span class="line">console.log(num);</span><br><span class="line">return num;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>执行时长</p><p><img src="http://ww1.sinaimg.cn/large/006xVFBigy1g7dxgzjpi2j30ap08oaa6.jpg" alt="2.png"></p>]]></content>
-      
-      
+      <tags>
+        <tag>leetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[singleNumber]]></title>
+    <url>%2F2019%2F09%2F22%2FsingleNumber%2F</url>
+    <content type="text"><![CDATA[只出现一次的数字给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。说明： 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？ 示例 1: 输入: [2,2,1]输出: 1示例 2: 输入: [4,1,2,1,2]输出: 4 来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/single-number著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 解法1 应该是最慢的方法。。。违背了题意刚看到这个题的时候我以为是用对象就出结果了，尴尬。然后仔细想了下这不是消消乐那种嘛，虽然不怎么玩，但是想起来简单做起来难， 我第一次的解法确实最繁琐的。解法是利用了很多外部空间是数组加对象 利用数组判断出每个数字的循环次数 再用对象找出最小的那个。。。123456789101112131415161718192021222324252627282930313233343536/** * @param &#123;number[]&#125; nums * @return &#123;number&#125; */var singleNumber = function(nums) &#123; if (nums.length &lt; 2) &#123; return nums[0]; &#125; let map = &#123;&#125;; let n = 1; let res = &apos;&apos;; for (let i = 0; i &lt; nums.length; i++) &#123; n = 1; for (let j = 0; j &lt; nums.length; j++) &#123; if (nums[i] === nums[j]) &#123; map[nums[i]] = n++; &#125; &#125; &#125; console.log(map, &apos;map&apos;); let min = 1; for (let key in map) &#123; if (map[key] &lt; min) &#123; min = map[key]; &#125; console.log(min, &apos;min&apos;); if (map[key] === min) &#123; res = key; &#125; &#125; console.log(res); return res;&#125;;let t = [ 2, 1, 2 ];let t1 = [ 4, 1, 2, 1, 2 ];singleNumber(t); 然后运行时长看图： 解法2 新建对象 相同的就删除 12345678910111213141516var singleNumber1 = function(nums) &#123; var obj = &#123;&#125;; for (let i = 0; i &lt; nums.length; i++) &#123; obj[nums[i]] = !obj[nums[i]]; if (!obj[nums[i]]) &#123; delete obj[nums[i]]; &#125; &#125; console.log(obj); return Object.keys(obj)[0];&#125;;let t = [ 2, 1, 2 ];let t1 = [ 4, 1, 2, 1, 2 ];let t2 = [ 1, 3, 1, -1, 3 ];singleNumber1(t1); 运行图解-第一次用这个软件 运行时长 一些大神的解法 ：解法3 因为 除了某个元素只出现一次以外，其余每个元素均出现两次， 所以我们可以先排序，在以2为基数循环 第一步先排序 冒号排序972ms…, 自带的排序88ms 以2为基数每次循环 因为是排好序的又是相同的是两两出现当前的不等于后一个就是唯一的，如果没有找到不相等的就返回最后一个 12345678910111213141516171819202122var singleNumber2 = function(nums) &#123; if (nums.length &lt; 2) &#123; return nums[0]; &#125; let tmp = 0; // 排序 for (let i = 0; i &lt; nums.length; i++) &#123; for (let j = 0; j &lt; nums.length - i - 1; j++) &#123; if (nums[j] &gt; nums[j + 1]) &#123; tmp = nums[j]; nums[j] = nums[j + 1]; nums[j + 1] = tmp; &#125; &#125; &#125; for (let i = 0; i &lt; nums.length; i += 2) &#123; if (nums[i] != nums[i + 1]) &#123; return nums[i]; &#125; &#125; return nums[nums.length - 1];&#125;; 运行时长： 解法三 异或运算先来看下异或运算的描述 任何数与0异或都不会改变他的数值 x ^ 0 = x 任何数与自身异都为0 x^x = 0 正好利用以上两点完美的解决。 12345678var singleNumber = function(nums) &#123; let num = 0; for (let i = 0; i &lt; nums.length; i++) &#123; num = num ^ nums[i]; &#125; console.log(num); return num;&#125;; 执行时长]]></content>
       <categories>
-          
-          <category> web前端 </category>
-          
+        <category>web前端</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> leetCode </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>first</title>
-      <link href="/2019/09/18/HelloHexo/"/>
-      <url>/2019/09/18/HelloHexo/</url>
-      
-        <content type="html"><![CDATA[<h2 id="第一篇文章-Hello-hexo"><a href="#第一篇文章-Hello-hexo" class="headerlink" title="第一篇文章 Hello hexo"></a>第一篇文章 Hello hexo</h2><h3 id="发布流程"><a href="#发布流程" class="headerlink" title="发布流程"></a>发布流程</h3><h4 id="新建"><a href="#新建" class="headerlink" title="新建"></a>新建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;hello-world&quot;</span><br></pre></td></tr></table></figure><h4 id="创建tags"><a href="#创建tags" class="headerlink" title="创建tags"></a>创建tags</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure><p>参考链接 <a href="https://www.jianshu.com/p/e17711e44e00" target="_blank" rel="noopener">https://www.jianshu.com/p/e17711e44e00</a><br><a href="https://www.jianshu.com/p/e17711e44e00" target="_blank" rel="noopener">Hexo使用攻略-添加分类及标签</a></p><h5 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure><h4 id="发布到github"><a href="#发布到github" class="headerlink" title="发布到github"></a>发布到github</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
+      <tags>
+        <tag>leetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[first]]></title>
+    <url>%2F2019%2F09%2F18%2FHelloHexo%2F</url>
+    <content type="text"><![CDATA[第一篇文章 Hello hexo发布流程新建1hexo new &quot;hello-world&quot; 创建tags1hexo new page tags 参考链接 https://www.jianshu.com/p/e17711e44e00Hexo使用攻略-添加分类及标签 执行命令1hexo g 发布到github12hexo cleanhexo g -d]]></content>
       <categories>
-          
-          <category> web前端 </category>
-          
+        <category>web前端</category>
       </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
 </search>

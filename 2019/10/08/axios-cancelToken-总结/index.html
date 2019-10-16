@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="leetCode,">
 
 
 
@@ -80,16 +80,17 @@
 
 
 <meta name="description" content="在vue 项目中我们通常会使用axios 来请求接口。在项目中遇到列表切换，防止快速多次点击列表导致请求频繁发送等等减轻服务器压力cancelToken取消请求就是一方案。 在ajax时代是用的abort()来取消接口请求的。 当然也有其他方法比如：节流、按钮置灰等等 基本用法看下官网的基本用法[cancelToken 取消请求] (http://www.axios-js.com/zh-cn/do">
-<meta property="og:type" content="website">
+<meta name="keywords" content="leetCode">
+<meta property="og:type" content="article">
 <meta property="og:title" content="axios-cancelToken 总结">
-<meta property="og:url" content="https://xuhongliweb.github.io/axios-cancelToken-总结/index.html">
+<meta property="og:url" content="https://xuhongliweb.github.io/2019/10/08/axios-cancelToken-总结/index.html">
 <meta property="og:site_name" content="x">
 <meta property="og:description" content="在vue 项目中我们通常会使用axios 来请求接口。在项目中遇到列表切换，防止快速多次点击列表导致请求频繁发送等等减轻服务器压力cancelToken取消请求就是一方案。 在ajax时代是用的abort()来取消接口请求的。 当然也有其他方法比如：节流、按钮置灰等等 基本用法看下官网的基本用法[cancelToken 取消请求] (http://www.axios-js.com/zh-cn/do">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006xVFBigy1g7rz0p0rhfj30n50cu3yu.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006xVFBigy1g80005p77aj30md01dglg.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006xVFBigy1g8001as3vaj30hj0510sv.jpg">
-<meta property="og:updated_time" content="2019-10-16T06:40:56.994Z">
+<meta property="og:updated_time" content="2019-10-16T06:53:32.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="axios-cancelToken 总结">
 <meta name="twitter:description" content="在vue 项目中我们通常会使用axios 来请求接口。在项目中遇到列表切换，防止快速多次点击列表导致请求频繁发送等等减轻服务器压力cancelToken取消请求就是一方案。 在ajax时代是用的abort()来取消接口请求的。 当然也有其他方法比如：节流、按钮置灰等等 基本用法看下官网的基本用法[cancelToken 取消请求] (http://www.axios-js.com/zh-cn/do">
@@ -123,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="https://xuhongliweb.github.io/axios-cancelToken-总结/">
+  <link rel="canonical" href="https://xuhongliweb.github.io/2019/10/08/axios-cancelToken-总结/">
 
 
 
@@ -224,24 +225,118 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xuhongliweb.github.io/2019/10/08/axios-cancelToken-总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="x">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">axios-cancelToken 总结</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>在vue 项目中我们通常会使用axios 来请求接口。在项目中遇到列表切换，防止快速多次点击列表导致请求频繁发送等等减轻服务器压力cancelToken取消请求就是一方案。 在ajax时代是用的abort()来取消接口请求的。 当然也有其他方法比如：节流、按钮置灰等等</p>
+          <h1 class="post-title" itemprop="name headline">axios-cancelToken 总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-08T17:13:45+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/08/axios-cancelToken-总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/08/axios-cancelToken-总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在vue 项目中我们通常会使用axios 来请求接口。在项目中遇到列表切换，防止快速多次点击列表导致请求频繁发送等等减轻服务器压力cancelToken取消请求就是一方案。 在ajax时代是用的abort()来取消接口请求的。 当然也有其他方法比如：节流、按钮置灰等等</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>看下官网的基本用法<br>[cancelToken 取消请求] (<a href="http://www.axios-js.com/zh-cn/docs/#%E5%8F%96%E6%B6%88" target="_blank" rel="noopener">http://www.axios-js.com/zh-cn/docs/#%E5%8F%96%E6%B6%88</a>)</p>
 <h4 id="官网方法一"><a href="#官网方法一" class="headerlink" title="官网方法一"></a>官网方法一</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">var CancelToken = axios.CancelToken;</span><br><span class="line">var source = CancelToken.source();</span><br><span class="line"></span><br><span class="line">axios.get(&apos;/user/12345&apos;, &#123;</span><br><span class="line">  cancelToken: source.token  // 标记</span><br><span class="line">&#125;).catch(function(thrown) &#123;</span><br><span class="line">  if (axios.isCancel(thrown)) &#123; // 主动取消的在这可以捕捉到</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 处理错误</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 取消请求（message 参数是可选的）</span><br><span class="line">source.cancel(&apos;Operation canceled by the user.&apos;);</span><br><span class="line"></span><br><span class="line">// post 取消请求</span><br><span class="line">axios.post(&apos;/user/123/&apos;,&#123;</span><br><span class="line">    name:x</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    cancelToken:source.token // 是在第三个地方添加 </span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">    // 成功</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">    if(axios.isCancel(err))&#123;</span><br><span class="line">        // 主动取消</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">        //其他错误</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -266,15 +361,63 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">axios.interceptors.request.use(</span><br><span class="line">	(config) =&gt; &#123;</span><br><span class="line">		clearHttpPendingList(config);</span><br><span class="line">		config.cancelToken = new cancelToken(function executor(c) &#123;</span><br><span class="line">			Vue.prototype.pending.push(&#123; url: config.url, c: c &#125;);</span><br><span class="line">		&#125;);</span><br><span class="line">		// 发送请求之前做的</span><br><span class="line">		return config;</span><br><span class="line">	&#125;,</span><br><span class="line">	(err) =&gt; &#123;</span><br><span class="line">		// 请求错误</span><br><span class="line">		return Promise.reject(err);</span><br><span class="line">	&#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">axios.interceptors.response.use(</span><br><span class="line">	(response) =&gt; &#123;</span><br><span class="line">		if (response.config.url.includes(&apos;http://jsonplaceholder.typicode.com/comments&apos;)) &#123;</span><br><span class="line">			localStorage.setItem(&apos;comments&apos;, JSON.stringify(response.data));</span><br><span class="line">		&#125; // comments 要缓存的接口</span><br><span class="line">		clearHttpPendingList(response.config); //在一个ajax响应后再执行一下取消操作，把已经完成的请求从pending中移除</span><br><span class="line"></span><br><span class="line">		// 响应成功的数据</span><br><span class="line">		return response;</span><br><span class="line">	&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const clearHttpPendingList = (config) =&gt; &#123;</span><br><span class="line">	Vue.prototype.pending.forEach((item, index) =&gt; &#123;</span><br><span class="line">		</span><br><span class="line">		if (config.url.includes(&apos;http://jsonplaceholder.typicode.com/comments&apos;) &amp;&amp; localStorage.getItem(&apos;comments&apos;)) &#123;</span><br><span class="line">			// 不同页面相同的接口</span><br><span class="line">            item.c();</span><br><span class="line">			Vue.prototype.pending.splice(index, 1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-        
-      </div>
-      
-      
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetCode/" rel="tag"># leetCode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/22/前言/" rel="next" title="前言">
+                <i class="fa fa-chevron-left"></i> 前言
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -335,7 +478,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

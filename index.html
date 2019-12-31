@@ -229,6 +229,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xuhongliweb.github.io/2019/10/16/防抖和节流/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="x">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/16/防抖和节流/" itemprop="url">防抖和节流</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-16T17:13:45+08:00">
+                2019-10-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/16/防抖和节流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/16/防抖和节流/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="防抖和节流"><a href="#防抖和节流" class="headerlink" title="防抖和节流"></a>防抖和节流</h3><p>在进行窗口的resize、scroll，输入框内容校验等操作时，如果事件处理函数调用的频率无限制，会加重浏览器的负担，用户体验非常差</p>
+<p>此时我们可以采用debounce（防抖）和throttle（节流）的方式来减少调用频率，同时又不影响实际效果。</p>
+<p>那么什么时候用防抖什么时候用节流呢</p>
+<p>函数节流不管事件触发有多频繁，都会保证在规定时间内一定会执行一次真正的事件处理函数，而函数防抖只是在最后一次事件后才触发一次函数。 比如在页面的无限加载场景下，我们需要用户在滚动页面时，每隔一段时间发一次 Ajax 请求，而不是在用户停下滚动页面操作时才去请求数据。这样的场景，就适合用节流技术来实现。</p>
+<p>一般页面频繁滚动时用节流， 页面里有个频繁触发的搜索框用防抖</p>
+<h4 id="节流-两种方式"><a href="#节流-两种方式" class="headerlink" title="节流 两种方式"></a>节流 两种方式</h4><p>时间戳版</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">throttle(fn, delay = 500) &#123;</span><br><span class="line">  let previous = 0;</span><br><span class="line">  return function() &#123;</span><br><span class="line">    let now = Date.now();</span><br><span class="line">    let context = this;</span><br><span class="line">    let args = arguments;</span><br><span class="line"></span><br><span class="line">    if (now - previous &gt; delay) &#123;</span><br><span class="line">      fn.apply(context, args); // </span><br><span class="line">      previous = now;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1gafva1171lg30zw0f2jsn.gif" alt="throttle.gif"></p>
+<p>定时器版</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">   * 调用这个方法一秒后才会执行， 之后没每隔delay秒运行一次函数</span><br><span class="line">   * 当最后一次停止触发后，由于定时器的delay延迟，可能还会执行一次函数。</span><br><span class="line">   */</span><br><span class="line">  throttle_timer(fn, delay) &#123;</span><br><span class="line">    let timer;</span><br><span class="line">    return function() &#123;</span><br><span class="line">      let that = this;</span><br><span class="line">      let arg = arguments;</span><br><span class="line">      if (!timer) &#123;</span><br><span class="line">        timer = setTimeout(() =&gt; &#123;</span><br><span class="line">          timer = null;</span><br><span class="line">          fn.apply(that, arg);</span><br><span class="line">        &#125;, delay);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1gafvesmoikg30zw0f276c.gif" alt="throttle_timer.gif"></p>
+<p>其实时间戳版和定时器版的节流函数的区别就是，时间戳版的函数触发是在时间段内开始的时候，而定时器版的函数触发是在时间段内结束的时候。</p>
+<h4 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h4><p>当持续触发事件，一定时间内没有再触发事件，事件会重新执行一次</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">debounce(fn, delay) &#123;</span><br><span class="line">    let timer;</span><br><span class="line">    return function() &#123;</span><br><span class="line">      let that = this,</span><br><span class="line">        arg = arguments;</span><br><span class="line">      timer &amp;&amp; clearTimeout(timer);</span><br><span class="line">      timer = setTimeout(function() &#123;</span><br><span class="line">        fn.apply(that, arg);</span><br><span class="line">      &#125;, delay);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br><img src="http://ww1.sinaimg.cn/large/006xVFBigy1gafvzom10rg30zw0f2di3.gif" alt="debounce.gif"></p>
+<p>以上调用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">initSearch() &#123;</span><br><span class="line">  const searchDom = this.$refs.inp;</span><br><span class="line">  const that = this;</span><br><span class="line">  // searchDom.addEventListener(</span><br><span class="line">  //   &quot;input&quot;,</span><br><span class="line">  //   that.throttle_timer(that.search, 1000)</span><br><span class="line">  // );</span><br><span class="line">    searchDom.addEventListener(</span><br><span class="line">    &quot;input&quot;,</span><br><span class="line">    that.debounce(that.search, 500)</span><br><span class="line">  );</span><br><span class="line">  // searchDom.addEventListener(&quot;input&quot;,that.throttle(that.search,5000))</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>可以看出来， 持续触发事件，会被清楚， 只有最后一次事件触发过后，等待指定延时时间后在执行的.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://xuhongliweb.github.io/2019/10/08/axios-cancelToken-总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -948,7 +1121,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -969,8 +1142,8 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
-                  <span class="site-state-item-count">3</span>
+                <a href="/tags/index-2.html">
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
